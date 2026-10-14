@@ -1,0 +1,14 @@
+.idea/
+.DS_Store
+*.log
+__pycache__/
+*.pyc
+
+# Node / Electron
+node_modules/
+dist/
+dist-electron/
+release/
+.studio-data/
+*.tsbuildinfo
+

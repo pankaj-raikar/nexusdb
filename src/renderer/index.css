@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Surfaces, from the window frame inward: chrome (title, activity and status bars),
+       sidebar, background (where work happens), card and popover (raised). */
+    --background: 0 0% 100%;
+    --foreground: 222 20% 13%;
+    --sidebar: 220 20% 97.5%;
+    --chrome: 220 16% 95.5%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 13%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 94%;
+    --secondary-foreground: 222 20% 13%;
+    --muted: 220 18% 96%;
+    --muted-foreground: 220 9% 43%;
+    --accent: 220 16% 93%;
+    --accent-foreground: 222 20% 13%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 89%;
+    --input: 220 13% 83%;
+    --ring: 221 83% 53%;
+    --selection: 221 83% 53%;
+    --success: 152 66% 30%;
+    --warning: 32 92% 38%;
+    --info: 221 83% 48%;
+    --shadow: 222 30% 18%;
+    --radius: 7px;
+
+    --syntax-keyword: #2456c7;
+    --syntax-string: #2b7a30;
+    --syntax-number: #a85400;
+    --syntax-comment: #717c8b;
+    --syntax-function: #7b3fb5;
+    --syntax-operator: #5a6478;
+
+    --chart-1: #2a78d6;
+    --chart-2: #eb6834;
+    --chart-3: #1baf7a;
+    --chart-4: #eda100;
+    --chart-grid: #e9ebef;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 223 13% 11%;
+    --foreground: 216 20% 92%;
+    --sidebar: 224 13% 9.5%;
+    --chrome: 225 14% 8%;
+    --card: 223 12% 14%;
+    --card-foreground: 216 20% 92%;
+    --popover: 223 12% 14.5%;
+    --popover-foreground: 216 20% 92%;
+    --primary: 217 90% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 223 11% 19%;
+    --secondary-foreground: 216 20% 92%;
+    --muted: 223 11% 15%;
+    --muted-foreground: 218 10% 62%;
+    --accent: 223 11% 18%;
+    --accent-foreground: 216 20% 92%;
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 223 11% 19%;
+    --input: 223 9% 26%;
+    --ring: 217 90% 62%;
+    --selection: 217 90% 62%;
+    --success: 152 52% 52%;
+    --warning: 38 88% 60%;
+    --info: 217 90% 70%;
+    --shadow: 225 40% 2%;
+
+    --syntax-keyword: #7fa9ff;
+    --syntax-string: #93cf8e;
+    --syntax-number: #e3b36a;
+    --syntax-comment: #7b8491;
+    --syntax-function: #c8a2f0;
+    --syntax-operator: #98a1ad;
+
+    --chart-1: #3987e5;
+    --chart-2: #d95926;
+    --chart-3: #199e70;
+    --chart-4: #c98500;
+    --chart-grid: #262a32;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans text-xs antialiased;
+    font-feature-settings: 'cv11', 'ss03';
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+  }
+
+  /* Keyboard focus is always visible; pointer focus stays quiet. */
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 1.5px solid hsl(var(--ring));
+    outline-offset: -1.5px;
+  }
+
+  input,
+  textarea,
+  [contenteditable='true'],
+  .selectable {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  ::selection {
+    background: hsl(var(--selection) / 0.28);
+  }
+
+  ::placeholder {
+    color: hsl(var(--muted-foreground) / 0.8);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.22);
+    border: 2.5px solid transparent;
+    background-clip: content-box;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.42);
+    border: 2.5px solid transparent;
+    background-clip: content-box;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+
+  /* Uppercase section label used across sidebars and inspectors. */
+  .section-label {
+    @apply text-2xs font-semibold uppercase tracking-[0.08em] text-muted-foreground;
+  }
+
+  /* Keyboard hint, as shown in menus, tooltips and the search box. */
+  .kbd {
+    @apply inline-flex h-[18px] min-w-[18px] items-center justify-center rounded border border-border bg-muted px-1 font-sans text-2xs font-medium text-muted-foreground;
+  }
+
+}
+
+/* Outside @layer on purpose: these class names are built at runtime, so Tailwind would purge them. */
+.sql-keyword {
+  color: var(--syntax-keyword);
+}
+.sql-string {
+  color: var(--syntax-string);
+}
+.sql-number {
+  color: var(--syntax-number);
+}
+.sql-comment {
+  color: var(--syntax-comment);
+}
+.sql-function {
+  color: var(--syntax-function);
+}
+.sql-operator {
+  color: var(--syntax-operator);
+}
+
+/* Monaco: blend into the surrounding surfaces and keep menus on the app's tokens. */
+.monaco-editor,
+.monaco-editor .overflow-guard {
+  outline: none !important;
+}
+.monaco-editor .suggest-widget,
+.monaco-editor .monaco-hover,
+.monaco-editor .context-view .monaco-menu {
+  border-radius: var(--radius) !important;
+}
+/* The find widget's toggles set their own visibility and would show through when it is closed. */
+.monaco-editor .find-widget:not(.visible),
+.monaco-editor .find-widget:not(.visible) * {
+  visibility: hidden !important;
+}
