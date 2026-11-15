@@ -12,7 +12,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-green.svg?style=flat-square" alt="License: Apache 2.0" /></a>
   <img src="https://img.shields.io/badge/version-0.3.0-blue.svg?style=flat-square" alt="Version 0.3.0" />
   <img src="https://img.shields.io/badge/status-pre--release-orange.svg?style=flat-square" alt="Status: pre-release" />
-  <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey.svg?style=flat-square" alt="Platforms: macOS and Windows" />
+  <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg?style=flat-square" alt="Platforms: macOS, Windows, Linux" />
 </p>
 
 <p align="center">
@@ -164,19 +164,23 @@ NexusDB implements a defense-in-depth safety perimeter:
 
 ### Download Pre-Built Installers
 
-Installers are packaged for macOS and Windows:
+Official desktop release binaries are available for macOS, Windows, and Linux via [GitHub Releases (v0.3.0)](https://github.com/pankaj-raikar/nexusdb/releases/tag/v0.3.0):
 
-| Platform | Target Package | Size |
-| :--- | :--- | :--- |
-| **macOS (Universal)** | [Universal DMG](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-universal.dmg) | 187 MB |
-| **macOS (Apple Silicon)** | [ARM64 DMG](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-arm64.dmg) | 108 MB |
-| **macOS (Intel)** | [x64 DMG](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0.dmg) | 115 MB |
-
-Pre-release builds are accessible via [GitHub Releases](https://github.com/pankaj-raikar/nexusdb/releases).
+| Operating System | Distribution Format | Download Link | Size |
+| :--- | :--- | :--- | :--- |
+| **macOS (Universal)** | Installer DMG | [NexusDB-0.3.0-universal.dmg](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-universal.dmg) | 187 MB |
+| **macOS (Apple Silicon)** | Installer DMG | [NexusDB-0.3.0-arm64.dmg](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-arm64.dmg) | 108 MB |
+| **macOS (Intel x64)** | Installer DMG | [NexusDB-0.3.0.dmg](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0.dmg) | 115 MB |
+| **macOS (Portable ZIP)** | Apple Silicon ZIP | [NexusDB-0.3.0-arm64-mac.zip](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-arm64-mac.zip) | 103 MB |
+| **macOS (Portable ZIP)** | Intel x64 ZIP | [NexusDB-0.3.0-mac.zip](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-mac.zip) | 110 MB |
+| **Windows (x64)** | NSIS Setup Installer | [NexusDB-Setup-0.3.0-x64.exe](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-Setup-0.3.0-x64.exe) | 92 MB |
+| **Windows (x64)** | Portable Executable | [NexusDB-0.3.0-portable.exe](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-portable.exe) | 83 MB |
+| **Linux (x64)** | AppImage & .deb | Automated build via [.github/workflows/release.yml](.github/workflows/release.yml) | ~90 MB |
 
 *Note:* Because builds are currently self-signed, bypass system warnings on first launch:
-- **macOS:** Navigate to **System Settings → Privacy & Security → Open Anyway**.
+- **macOS:** Navigate to **System Settings → Privacy & Security → Open Anyway** (or run `xattr -cr /Applications/NexusDB.app`).
 - **Windows:** In Windows SmartScreen, click **More info → Run anyway**.
+- **Linux:** Run `chmod +x NexusDB-0.3.0.AppImage && ./NexusDB-0.3.0.AppImage`.
 
 ### Build from Source
 
