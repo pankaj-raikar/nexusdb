@@ -166,12 +166,11 @@ NexusDB implements a defense-in-depth safety perimeter:
 
 Installers are packaged for macOS and Windows:
 
-| Platform | Target Package |
-| :--- | :--- |
-| **macOS (Universal)** | Universal DMG (Apple Silicon & Intel) |
-| **macOS (Apple Silicon)** | ARM64 DMG (M1/M2/M3/M4) |
-| **macOS (Intel)** | x64 DMG |
-| **Windows (64-bit)** | NSIS Installer or Portable EXE |
+| Platform | Target Package | Size |
+| :--- | :--- | :--- |
+| **macOS (Universal)** | [Universal DMG](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-universal.dmg) | 187 MB |
+| **macOS (Apple Silicon)** | [ARM64 DMG](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0-arm64.dmg) | 108 MB |
+| **macOS (Intel)** | [x64 DMG](https://github.com/pankaj-raikar/nexusdb/releases/download/v0.3.0/NexusDB-0.3.0.dmg) | 115 MB |
 
 Pre-release builds are accessible via [GitHub Releases](https://github.com/pankaj-raikar/nexusdb/releases).
 
